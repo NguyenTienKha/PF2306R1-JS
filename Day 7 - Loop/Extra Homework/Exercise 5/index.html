@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let numberOfStudents = parseInt(prompt("Nhập số lượng học sinh: "));
+        let students = [];
+
+        for (let i = 1; i <= numberOfStudents; i++) {
+            let name = prompt("Enter full name : ");
+            while (name === "" || !isNaN(name)) {
+                name = prompt("Enter full name again : ");
+            }
+            let fullName = correctName(name);
+            let score = -1;
+            while (score < 0 || score >11) {
+                score = parseFloat(prompt("Enter score : "));
+            }
+            students.push({ name: fullName, score: score });
+        }
+        students.sort((a, b) => b.score - a.score);
+
+        let topStudent = students[0];
+        let secondTopStudent = students[1];
+
+        console.log("Học sinh có điểm cao nhất: " + topStudent.name + " - Điểm: " + topStudent.score);
+        console.log("Học sinh có điểm cao thứ hai: " + secondTopStudent.name + " - Điểm: " + secondTopStudent.score);
+
+        function correctName(name) {
+            name = name.trim().toLowerCase().replace(/\s+/g, " ");
+            let word = name.split(" ");
+            let fullName = "";
+            for (let j = 0; j < word.length; j++) {
+                let firstWord = word[j].substring(0, 1).toUpperCase();
+                let otherWord = word[j].substring(1);
+                fullName += firstWord + otherWord + " ";
+            }
+            return fullName;
+        }
+    </script>
+</body>
+
+</html>

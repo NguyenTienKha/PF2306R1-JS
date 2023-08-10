@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        class Remote {
+            constructor(code) {
+                this.code = code;
+            }
+            controlChannel(tv, channel) {
+                tv.changeChannel(channel);
+            }
+            controlVolume(tv, volume) {
+                tv.adjustVolume(volume);
+            }
+
+        }
+        class TiVi {
+            constructor() {
+                this.currentChannel = 1;
+                this.currentVolume = 1;
+                this.isTurnOn = true;
+            }
+            changeChannel(channel) {
+                if (this.isTurnOn) {
+                    this.currentChannel = channel;
+                    console.log(`Changed to channel ${channel}`);
+                }
+            }
+            adjustVolume(volume) {
+                if (this.isTurnOn) {
+                    this.currentVolume += volume;
+                    console.log(`The current volume is ${this.currentVolume}`);
+                }
+            }
+            turnOn() {
+                this.isTurnOn = true;
+                console.log("TV is turned on");
+            }
+            turnOff() {
+                this.isTurnOn = false;
+                console.log("TV is turned off");
+            }
+        }
+
+        const tivi = new TiVi();
+        const remote = new Remote("2908");
+
+        tivi.turnOn();
+        remote.controlChannel(tivi, 7);
+        remote.controlChannel(tivi, 3);
+        remote.controlVolume(tivi, 2);
+        tivi.turnOff();
+
+    </script>
+</body>
+
+</html>

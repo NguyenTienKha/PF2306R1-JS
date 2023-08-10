@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="myCanvas"></canvas>
+    </div>
+    <script>
+        class Rectangle {
+            constructor(length, width) {
+                this.length = length;
+                this.width = width;
+            }
+
+            calculateArea() {
+                return this.length * this.width;
+            }
+
+            calculatePerimeter() {
+                return 2 * (this.length + this.width);
+            }
+
+            drawRectangle() {
+                const canvas = document.getElementById('myCanvas');
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = "orange";
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillRect(10, 10, this.length, this.width);
+            }
+        }
+
+        let myRectangle = new Rectangle(100, 150);
+
+        myRectangle.drawRectangle();
+
+        myRectangle.length = 200;
+        myRectangle.width = 250;
+
+        myRectangle.drawRectangle();
+
+        const area = myRectangle.calculateArea();
+        const perimeter = myRectangle.calculatePerimeter();
+        console.log(`Diện tích: ${area}`);
+        console.log(`Chu vi: ${perimeter}`);
+
+    </script>
+</body>
+
+</html>

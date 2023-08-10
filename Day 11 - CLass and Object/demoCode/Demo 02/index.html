@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Date {
+            constructor(day, month, year) {
+                this.day = day;
+                this.month = month;
+                this.year = year;
+            }
+            getDay() {
+                return this.day < 10 ? "0" + this.day : this.day;
+            }
+            getMonth() {
+                return this.month < 10 ? "0" + this.month : this.month;
+            }
+            getYear() {
+                return this.year;
+            }
+            setDay(day) {
+                if (this.#validateDay(day)) {
+                    this.day = day;
+                } else {
+                    throw Error("The input day is not valid");
+                }
+            }
+            setMonth(month) {
+                if (this.#validateMonth(month)) {
+                    this.month = month;
+                } else {
+                    throw Error("The input month is not valid");
+                }
+            }
+            setYear(year) {
+                if (this.#validateYear(year)) {
+                    this.year = year;
+                } else {
+                    throw Error("The input year is not valid");
+                }
+            }
+            setDate(day, month, year) {
+                if (this.#validateDay(day) && this.#validateMonth(month) && this.#validateYear(year)) {
+                    this.day = day;
+                    this.month = month;
+                    this.year = year;
+                } else {
+                    throw Error("The input date is not valid");
+                }
+            }
+            toString() {
+                return this.getDay() + "/" + this.getMonth() + "/" + this.getYear();
+            }
+            #validateDay(day) {
+                return day >= 1 && day <= 31;
+            }
+            #validateMonth(month) {
+                return month >= 1 && month <= 12;
+            }
+            #validateYear(year) {
+                return year >= 1970 && year <= 3000;
+            }
+        }
+        let today = new Date(29, 08, 2003);
+        let day = today.getDay();
+        let month = today.getMonth();
+        let year = today.getYear();
+        console.log(day+"/"+month+"/"+year);
+
+    </script>
+</body>
+
+</html>

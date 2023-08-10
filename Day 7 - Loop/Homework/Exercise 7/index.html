@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let listPrime = [];
+        let numbers = parseInt(prompt('Enter the number of prime numbers to display: '));
+        let count = 0,N=2;
+
+        function checkPrime(number) {
+            if (number < 2) return false;
+            for (let i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i == 0) return false;
+            }
+            return true;
+        }
+
+        while (count < numbers) {
+            if (checkPrime(N)) {
+                listPrime.push(N);
+                count++;
+            }
+            N++;
+        }
+        alert(listPrime);
+    </script>
+</body>
+
+</html>

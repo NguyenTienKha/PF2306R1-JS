@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <input type="number" id="number-input" ">
+        <button onclick=" find()">Add</button>
+        <div id="text"></div>
+    </div>
+
+    <script>
+        let list = [-3, 5, 1, 3, 2, 10];
+        let count = 0;
+
+        function find() {
+            let numberInput = document.getElementById("number-input");
+            let result = numberInput.value;
+            for (let i = 0; i < list.length; i++) {
+                if (list[i] == result) {
+                    count++;
+                }
+
+            }
+            if (count != 0) { text.innerHTML = "Element :" + result + " has founded in array" + "<br>"; }
+            else { text.innerHTML = "Can not found"; }
+        }
+    </script>
+</body>
+
+</html>

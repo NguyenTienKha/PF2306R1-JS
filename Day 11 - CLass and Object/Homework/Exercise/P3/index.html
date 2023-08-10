@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Apple {
+            constructor() {
+                this.weight = 10;
+            }
+
+            decrease() {
+                this.weight--;
+            }
+
+            isEmpty() {
+                return this.weight === 0;
+            }
+
+            getWeight() {
+                return this.weight;
+            }
+        }
+
+        class Human {
+            constructor(name, gender, weight) {
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+
+            isMale() {
+                return this.gender;
+            }
+
+            setGender(gender) {
+                this.gender = gender;
+            }
+
+            checkApple(apple) {
+                return !apple.isEmpty();
+            }
+
+            eat(apple) {
+                if (!apple.isEmpty()) {
+                    this.weight++;
+                    apple.decrease();
+                } else {
+                    console.log("The apple is empty.");
+                }
+            }
+
+            say(words) {
+                console.log(words);
+            }
+
+            getName() {
+                return this.name;
+            }
+
+            setName(name) {
+                this.name = name;
+            }
+
+            getWeight() {
+                return this.weight;
+            }
+
+            setWeight(weight) {
+                this.weight = weight;
+            }
+        }
+
+        // Tạo đối tượng Apple và Human
+        const apple = new Apple();
+        const adam = new Human("Adam", true, 70);
+        const eva = new Human("Eva", false, 60);
+        let count = 0;
+        // Mô phỏng câu chuyện
+        while (adam.checkApple(apple) && eva.checkApple(apple)) {
+            count++;
+            adam.eat(apple);
+            adam.say("Adam eating an apple  " + count + "time(s)");
+            eva.eat(apple);
+            eva.say("Eva eating an apple  " + count + "time(s)");
+        }
+
+        if (!adam.checkApple(apple) && !eva.checkApple(apple)) {
+            console.log("Apple is empty!");
+        }
+        adam.say("Adam full.");
+        console.log("Adam's weight : " + adam.getWeight()+"kg");
+        eva.say("Eva full.");
+        console.log("Eva's weight : " + eva.getWeight()+"kg");
+
+
+    </script>
+</body>
+
+</html>

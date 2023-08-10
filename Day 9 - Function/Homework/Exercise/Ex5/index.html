@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Product</title>
+    <link rel="stylesheet" href="./bootstrap-5.2.3-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            font-family: cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add New Product</h1>
+        <div class="wrapper__add-product">
+            <input type="text" placeholder="New product" id="name-product">
+            <button onclick="addProduct()">Add</button>
+        </div>
+        <br>
+        <h1>Display All Product</h1>
+        <div class="wrapper-list-product d-flex justify-content-between">
+            <div class="product-name fw-bold ">Product Name</div>
+            <div class="numbers-product " id="numbers-of-product"></div>
+        </div>
+
+        <div class="wrapper-all-products" id="store-product"></div>
+    </div>
+
+    <script>
+        let count = 0;
+        let nameProduct = document.getElementById("name-product");
+        let numberOfProduct = document.getElementById("numbers-of-product");
+        let listProduct = [];
+        let storeProduct = document.getElementById("store-product");
+
+        function addProduct() {
+            let productName = nameProduct.value.trim();
+            if (productName != '') {
+                listProduct.push(productName);
+                storeProduct.innerHTML = '';
+                displayName(listProduct);
+                numberOfProduct.innerHTML = listProduct.length;
+                nameProduct.value = '';
+            } else {
+                alert("Please enter a valid product name!");
+            }
+        }
+
+        function editName(index) {
+            let newName = prompt("Enter new name for this product");
+            while (newName == '') {
+                newName = prompt("Enter new name for this product");
+            }
+            listProduct[index] = newName;
+            storeProduct.innerHTML = '';
+            displayName(listProduct);
+        }
+
+        function displayName(listProduct) {
+            listProduct.forEach(function (product, index) {
+                storeProduct.innerHTML += `
+                    <div class="d-flex justify-content-between">
+                        <div class="product-item col-6">${index + 1}. ${product}</div>
+                        <button class="edit-name" onclick="editName(${index})">Edit</button> 
+                        <button class="delete-name" onclick="deleteName(${index})">Delete</button>
+                    </div> 
+                    <br>
+            `;
+            });
+        }
+
+        function deleteName(index) {
+            listProduct.splice(index, 1);
+            storeProduct.innerHTML = '';
+            displayName(listProduct);
+            numberOfProduct.innerHTML = listProduct.length;
+        }
+
+        
+    </script>
+</body>
+
+</html>

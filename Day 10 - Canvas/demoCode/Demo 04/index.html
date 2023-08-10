@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="mainFrame"></canvas>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        let result = document.getElementById("result");
+        let canvas = document.getElementById("mainFrame");
+        let ctx = canvas.getContext("2d");
+        canvas.width = "500";
+        canvas.height = "500";
+        canvas.style = "border: 1px solid black";
+        let x = 150, y = 20;
+        let rectWidth = 150, rectHeight = 75;
+        let distance = 5, speed = 50;
+        let count =0;
+        function drawRect() {
+            ctx.fillStyle = 'orange';
+            ctx.fillRect(x, y, rectWidth, rectHeight);
+            result.innerText =count;
+        }
+        // function moveUp() {
+        //     if (y > 0) {
+        //         y--;
+        //     }
+        //     drawRect();
+        // }
+        // function moveDown() {
+        //     clearRect();
+        //     if (y + rectHeight < 500) {
+        //         y++;
+        //     }
+        //     drawRect();
+        // }
+        function clearRect() {
+            ctx.clearRect(x, y, rectWidth, rectHeight);
+        }
+        function touchingTopDown() {
+            clearRect();
+            let isTouchTop = y <= 0;
+            let isTouchBottom = y + rectHeight >= canvas.height;
+            if (isTouchTop || isTouchBottom) {
+                distance = - distance;
+                count++;
+            }
+            y += distance;
+            drawRect();
+        }
+        function init() {
+            drawRect();
+            let gameLoop = setInterval(touchingTopDown, speed);0
+        }
+        init();
+    </script>
+</body>
+
+</html>

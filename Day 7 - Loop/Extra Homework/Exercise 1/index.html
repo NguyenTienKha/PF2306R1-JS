@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let numStudents = parseInt(prompt("Enter numbers of student :"));
+        let highestScorerName = "";
+        let highestScore = -1;
+        for (let i = 0; i < numStudents; i++) {
+            let name = "";
+            while (name === "" || !isNaN(name)) {
+                name = prompt("Enter full name : ");
+            }
+            let fullName = correctName(name);
+            let score = NaN;
+            while (isNaN(score) || score < 0 || score > 10) {
+                score = parseFloat(prompt("Enter " + fullName + " score" + ":"));
+            }
+            if (score > highestScore) {
+                highestScore = score;
+                highestScorerName = fullName;
+            }
+
+        }
+        alert("The student have highest score : " + highestScorerName + " with " + highestScore + "đ");
+
+        function correctName(name) {
+            name = name.trim().toLowerCase().replace(/\s+/g, " ");
+            let word = name.split(" ");
+            let fullName = "";
+            for (let j = 0; j < word.length; j++) {
+                let firstWord = word[j].substring(0, 1).toUpperCase();
+                let otherWord = word[j].substring(1);
+                fullName += firstWord + otherWord + " ";
+            }
+            return fullName;
+        }
+        function checkScore(score) {
+            if (score < 0) return false;
+            else return true;
+        }
+    </script>
+</body>
+
+</html>

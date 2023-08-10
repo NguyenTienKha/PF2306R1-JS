@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = Number(prompt("Enter first number."));
+        let b = Number(prompt("Enter second number."));
+        let c = Number(prompt("Enter third number."));
+        let arr = [];
+        arr.push(a); arr.push(b); arr.push(c);
+        function findMaxValue(arr){
+            let maxValue = arr[0];
+            for (let i = 0; i < arr.length; i++) {
+                if(maxValue<= arr[i]) maxValue = arr[i];
+            }
+            return maxValue;
+        }
+        let d = findMaxValue(arr);
+        alert("The maximum value in array is " + d);
+    </script>
+</body>
+
+</html>

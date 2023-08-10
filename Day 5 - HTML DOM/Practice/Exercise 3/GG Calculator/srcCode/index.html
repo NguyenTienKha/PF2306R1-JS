@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../bootstrap-5.0.2-dist/js/bootstrap.min.js">
+</head>
+
+<body id="body">
+    <div class="container p-2 rounded-2 mt-5 text-center bg-white shadow w-50">
+        <h1 id="title" class="text-uppercase fw-bold m-2">
+            <span>G</span><span>O</span><span>O</span><span>G</span><span>L</span><span>E</span> calculator
+        </h1>
+        <input class="display-calculator border border-secondary col-10 rounded-2 text-end ps-3 pe-3 mt-2 mb-2 p-4 fs-5"
+            id="display" disabled>
+        </input>
+        <div class="calculator m-4 d-flex flex-wrap justify-content-center">
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2 rounded-2"
+                onclick="clickToDisplay('Rad')">Rad</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2">Deg</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('!')">x!</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2">Inv</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2">sin</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('ln')">ln</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick=" clickToDisplay('π')">π</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2">cos</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('log')">log</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('e')">e</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2">tan</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('√')">√x</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('^')">x^y</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2">EXP</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('%')">%</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('(')">(</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay(')')">)</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('Ans')">Ans</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('.')">.</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clearBuffer()">AC</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('9')">9</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('8')">8</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('7')">7</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('-')">-</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('/')">/</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('6')">6</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('5')">5</button>
+            <!-- <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2">C</button> -->
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('4')">4</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('+')">+</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('*')">*</button>
+            <button class="col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('3')"">3</button>
+            <button class=" col-2 m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('2')">2</button>
+            <button class="col-2  m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('1')">1</button>
+            <button class="col-2  m-1 p-2 border btn-outline-dark rounded-2" onclick="clickToDisplay('0')">0</button>
+            <button class="col-2  m-1 p-2 border btn-outline-dark rounded-2" onclick="calculate()">=</button>
+
+        </div>
+    </div>
+
+    <script>
+        let display = document.getElementById("display");
+        function clearBuffer() {
+            display.value = "";
+        }
+
+        function clickToDisplay(value) {
+            if (value === 'π') {
+                display.value += '3.14';
+            } else if (value === 'e') {
+                display.value += '2.71';
+            } else if (value === '√') {
+                let result = Math.sqrt(parseFloat(display.value));
+                display.value =result;
+            } else if (value === 'log') {
+                let inputValue = document.getElementById("display").value;
+                let result = Math.log(parseFloat(inputValue)) / Math.log(parseFloat(10));
+                document.getElementById("display").value = result;
+            } else if (value === 'ln') {
+                let inputValue = document.getElementById("display").value;
+                let result = Math.log(parseFloat(inputValue)) / Math.log(parseFloat(2.71));
+                document.getElementById("display").value = result;
+            } else if (value === '%') {
+                let inputValue = document.getElementById("display").value;
+                let result = inputValue / 100;
+                document.getElementById("display").value = result;
+            } else if (value == '^') {
+                document.getElementById("display").value += '^';
+            } else if (value == '!') {
+                let inputValue = document.getElementById("display").value;
+                let result = 1;
+                for (let i = 1; i <= inputValue; i++) {
+                    result *= i;
+                }
+                document.getElementById("display").value = result;
+            } else {
+                document.getElementById("display").value += value;
+            }
+        }
+
+        function calculate() {
+            let displayValue = document.getElementById("display").value;
+            let numbers = displayValue.split('^');
+            if (numbers.length === 2) {
+                let a = parseFloat(numbers[0]);
+                let b = parseFloat(numbers[1]);
+                let result = Math.pow(a, b);
+                document.getElementById("display").value = result;
+            } else {
+                try {
+                    let result = eval(displayValue);
+                    document.getElementById("display").value = result;
+                } catch (error) {
+                    document.getElementById("display").value = "I have no idea about that 🥲. I'm sorry 🫶";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

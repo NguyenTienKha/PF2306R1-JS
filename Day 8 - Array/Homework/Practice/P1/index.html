@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <input type="number" id="number-input" onchange="getInput(this)">
+        <button onclick="add()">Add</button>
+        <button onclick="display()">Display</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let tempValue;
+        let arrayList = [];
+        let result = document.getElementById("result");
+        function getInput(obj){
+            tempValue = Number(obj.value);
+        }
+        function add(){
+            arrayList.push(tempValue);
+        }
+        function display(){
+            let text = "";
+            for (let i = 0; i < arrayList.length; i++) {
+                text += "Element: " + i +" : "+arrayList[i]+"<br/>";
+            }
+            result.innerHTML = text;
+        }
+    </script>
+</body>
+</html>

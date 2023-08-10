@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let saleAmount = -1;
+        let money;
+        while (saleAmount < 0 || isNaN(saleAmount)) {
+            saleAmount = Number(prompt("Please enter sale amount."));
+        }
+        if (saleAmount >= 0.01 && saleAmount <= 5000) {
+            money = saleAmount * 0.08;
+        }
+        else if (saleAmount <= 10000) {
+            money = 5000 * 0.08 + (saleAmount - 5000) * 0.1;
+        } else {
+            money = 5000 * 0.08 + 5000 * 0.1 + (saleAmount - 10000) * 0.12;
+        }
+        alert("Tong so tien hoa hong : " + (money*12));
+    </script>
+</body>
+
+</html>

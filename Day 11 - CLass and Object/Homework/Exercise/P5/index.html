@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-5.2.3-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
+    <style>
+        .btn-reset {
+            background-color: papayawhip;
+            color: purple;
+        }
+
+        .box-content {
+            background-color: aquamarine;
+            color: brown;
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(20, 30px);
+            gap: 0;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center align-items-center flex-column">
+        <div class="title text-uppercase fw-bold m-3">caro game</div>
+        <button onclick="reset()" class="btn-reset border-0 rounded-3 fw-bold m-3">Reset</button>
+        <div id="game-board" class="game-board mb-4">
+        </div>
+    </div>
+    <script>
+        const gameBoard = document.getElementById("game-board");
+        let count = 0;
+        let arr = [];
+
+        function reset() {
+            gameBoard.innerHTML = "";
+            createGameBoard();
+            count = 0;
+            arr = [];
+        }
+
+        function createGameBoard() {
+            for (let i = 0; i < 20; i++) {
+                const row = [];
+                for (let j = 0; j < 20; j++) {
+                    gameBoard.innerHTML += `<div class="box-content text-center fw-bold" onclick="clickBtn(this)"></div>`;
+                    row.push("");
+                }
+                arr.push(row);
+            }
+        }
+        createGameBoard();
+
+        function clickBtn(btn) {
+            if (btn.innerText == "") {
+                if (count % 2 == 0) {
+                    btn.innerText = "X";
+                    count++;
+                } else {
+                    btn.innerText = "O";
+                    count++;
+                }
+                updateArray();
+                notification();
+            }
+        }
+
+        function updateArray() {
+            const content = document.getElementsByClassName("box-content");
+            let index = 0;
+            for (let i = 0; i < 20; i++) {
+                for (let j = 0; j < 20; j++) {
+                    arr[i][j] = content[index].innerText;
+                    index++;
+                }
+            }
+        }
+
+        function checkWin() {
+            for (let i = 0; i < 20; i++) {
+                for (let j = 0; j < 20; j++) {
+                    if (
+                        arr[i][j] != "" &&
+                        arr[i][j] == arr[i][j + 1] &&
+                        arr[i][j] == arr[i][j + 2] &&
+                        arr[i][j] == arr[i][j + 3] &&
+                        arr[i][j] == arr[i][j + 4] ||
+                        arr[i][j] != "" &&
+                        arr[i][j] == arr[i + 1][j] &&
+                        arr[i][j] == arr[i + 2][j] &&
+                        arr[i][j] == arr[i + 3][j] &&
+                        arr[i][j] == arr[i + 4][j] ||
+                        arr[i][j] != "" &&
+                        arr[i][j] == arr[i + 1][j + 1] &&
+                        arr[i][j] == arr[i + 2][j + 2] &&
+                        arr[i][j] == arr[i + 3][j + 3] &&
+                        arr[i][j] == arr[i + 4][j + 4] ||
+                        arr[i][j] != "" &&
+                        arr[i][j] == arr[i - 1][j + 1] &&
+                        arr[i][j] === arr[i - 2][j + 2] &&
+                        arr[i][j] == arr[i - 3][j + 3] &&
+                        arr[i][j] == arr[i - 4][j + 4]
+                    ) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        function notification() {
+            if (checkWin()) {
+                alert("Win!");
+                reset();
+            };
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

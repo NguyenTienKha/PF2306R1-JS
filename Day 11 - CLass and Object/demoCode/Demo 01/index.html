@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Circle {
+            constructor(radius, color) {
+                this.radius = radius;
+                this.color = color;
+            }
+            getRadius() {
+                return this.radius;
+            }
+            getArea() {
+                return Math.pow(this.radius, 2) * Math.PI;
+            }
+            printObj(){
+                console.log(`This ${this.constructor.name} has radius = ${this.radius} and color : ${this.color}`);
+            }
+
+        }
+        let circleOne = new Circle(5, "red");
+        console.log(circleOne);
+        console.log(circleOne.getRadius());
+        console.log(circleOne.color);
+        console.log(circleOne.getArea());
+        circleOne.printObj();
+    </script>
+</body>
+
+</html>

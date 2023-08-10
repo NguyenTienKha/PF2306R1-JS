@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Battery{
+            constructor(){
+                this.energy = 0;
+            }
+            setEnergy(amount){
+                this.energy = amount;
+            }
+            getEnergy(){
+                return this.energy;
+            }
+            decreaseEnergy(){
+                if(this.energy >0)
+                this.energy = this.energy - 1;
+            }
+        }
+        class FlashLamp{
+            constructor(){
+                this.status = false;
+                this.battery = new Battery();
+            }
+            setBattery(battery){
+                this.battery = battery;
+            }
+            getBatteryInfo(){
+                return this.battery.getEnergy();
+            }
+            light(){
+                if(this.status){
+                    console.log("Lightning");
+                }else{
+                    console.log("Not lightning");
+                }
+            }
+            turnOn(){
+                this.status = true;
+                this.battery.decreaseEnergy();
+            }
+            turnOff(){
+                this.status = false;
+            }
+        }
+        let battery = new Battery();
+        battery.setEnergy(10);
+
+        let flashLamp = new FlashLamp();
+        flashLamp.setBattery(battery);
+
+        document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
+        flashLamp.light();
+
+        document.write("Turn on<br/>")
+        flashLamp.turnOn();
+        flashLamp.light();
+        document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
+
+        document.write("Turn off<br/>")
+        flashLamp.turnOff();
+        flashLamp.light();
+    </script>
+</body>
+</html>

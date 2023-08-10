@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt("Enter a number"));
+        let arr = {value:a};
+        function calculateSquare(arr){
+            let b = Math.pow(arr.value,2);
+            return b;
+        }
+        arr.value = calculateSquare(arr);
+        alert(arr.value);
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <label for="number">Enter a number</label><br>
+        <input type="number" id="number">
+        <button onclick="reverseNumber()">Change</button>
+        <br><br>
+        <div>After reverse :</div>
+        <div id="result"></div>
+
+    </div>
+    <script>
+        function reverseNumber() {
+            let input = document.getElementById("number");
+            let number = input.value;
+            let remainder, reverseNum = 0, temp = number;
+
+            if (number < 0) {
+                alert("Please enter a non-negative number.");
+                input.focus();
+                return;
+            }
+
+            while (temp > 0) {
+                remainder = temp % 10;
+                reverseNum = reverseNum * 10 + remainder;
+                temp = Math.floor(temp / 10);
+            }
+
+            document.getElementById("result").innerHTML = reverseNum;
+        }
+    </script>
+</body>
+
+</html>

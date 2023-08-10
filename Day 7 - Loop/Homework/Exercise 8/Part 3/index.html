@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let number = Number(prompt('Enter numbers of Fibonacci sequences '));
+        let listFibo = [1, 1];
+        for (let i = 2; i < number; i++) {
+            let nextElement = listFibo[i-1]+listFibo[i-2];
+            listFibo.push(nextElement);
+        }
+        alert(listFibo);
+    </script>
+</body>
+
+</html>

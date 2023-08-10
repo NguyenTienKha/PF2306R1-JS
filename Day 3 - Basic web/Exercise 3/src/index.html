@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <script href="../bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <form method="post" action="abc.php" class="basicForm ">
+
+        <div class="title-form fs-5 fw-bold">Order Form</div>
+        <div class="first-part ">
+            <p class="fw-bold m-0">1.What would you like to buy?</p>
+            <select class="col-6 col-md-2 ">
+                <option value="  ">A</option>
+                <option>B (+ 0.5$)</option>
+                <option>C (+ 0.5$)</option>
+            </select>
+        </div>
+
+        <div class="second-part">
+            <p class="fw-bold m-0">2.How many would you like to order?</p>
+            <input type="radio" name="rd" /> 1 - $10 <br />
+            <input type="radio" name="rd" /> 2 - $20 <br />
+            <input type="radio" name="rd" /> 3 - $25 <br />
+        </div>
+
+        <div class="third-part">
+            <label class="fw-bold">3.Name <span style="color: red">*</span> </label><br>
+            <div class="d-md-flex">
+                <input type="text" name="firstname" placeholder="FirstName" size="15"
+                    class="col-7 col-md-4 me-md-2 mb-2 mb-md-0" required />
+                <input type="text" name="lastname" placeholder="LastName" size="15"
+                    class="col-7 col-md-4 ms-md-2 mt-2 mt-md-0" required />
+            </div>
+        </div>
+
+        <div class="four-part">
+            <label class="fw-bold" for="email">4.Email</label><br>
+            <input type="email" id="email" name="email" placeholder="user@gmail.com" class="col-8 col-md-4" required>
+
+        </div>
+
+        <div class="five-part">
+            <label class="fw-bold">5.Phone Number</label><br>
+            <input type="text" name="phone" maxlength="4" pattern="\d{4}" class="col-3 col-md-1" placeholder="****"
+                required />
+            <input type="text" name="phone" maxlength="4" pattern="\d{4}" class="col-3 col-md-1" placeholder="****"
+                required />
+            <input type="text" name="phone" maxlength="4" pattern="\d{4}" class="col-3 col-md-1" placeholder="****"
+                required />
+            <br>
+        </div>
+        <!-- <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}" title="EX : VIE , RUS , ... " maxlength="3"><br><br> -->
+        <input type="submit" class="btn-submit">
+
+    </form>
+
+</body>
+
+</html>

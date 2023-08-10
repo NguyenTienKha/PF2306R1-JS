@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // class Rat {
+        //     constructor(name, weight, speed) {
+        //         this.name = name;
+        //         this.weight = weight;
+        //         this.speed = speed;
+        //         this.isAlive = true;
+        //     }
+
+        //     makeNoise() {
+        //         console.log("Chít chít");
+        //     }
+        // }
+
+        // class Cat {
+        //     constructor(name, weight, maxSpeed) {
+        //         this.name = name;
+        //         this.weight = weight;
+        //         this.maxSpeed = maxSpeed;
+        //     }
+
+        //     makeNoise() {
+        //         console.log("Mèo méo méo");
+        //     }
+
+        //     catchRat(rat) {
+        //         if (this.maxSpeed > rat.speed) {
+        //             console.log(`Mèo ${this.name} đã bắt được chuột ${rat.name}`);
+        //             this.eatRat(rat);
+        //         } else {
+        //             console.log(`Chuột ${rat.name} đã trốn khỏi mèo ${this.name}`);
+        //         }
+        //     }
+
+        //     eatRat(rat) {
+        //         if (rat.isAlive) {
+        //             console.log(`Mèo ${this.name} đã ăn chuột ${rat.name}`);
+        //             this.weight += rat.weight;
+        //             rat.isAlive = false;
+        //         } else {
+        //             console.log(`Chuột ${rat.name} đã chết, không thể ăn`);
+        //         }
+        //     }
+        // }
+
+        // const rat1 = new Rat("Jerry", 0.5, 10);
+        // const rat2 = new Rat("Mickey", 0.4, 12);
+
+        // const cat1 = new Cat("Tom", 3, 15);
+
+        // cat1.makeNoise();
+        // rat1.makeNoise();
+        // rat2.makeNoise();
+
+        // cat1.catchRat(rat1);
+        // cat1.catchRat(rat2);
+        // cat1.eatRat(rat1);
+        // cat1.eatRat(rat2);
+
+        class Rat {
+            constructor(name, weight, speed) {
+                this.name = name;
+                this.weight = weight;
+                this.speed = speed;
+                this.isAlive = true;
+            }
+            makeNoise() {
+                console.log("chit chit");
+            }
+        }
+        class Cat {
+            constructor(name, weight, maxSpeed) {
+                this.name = name;
+                this.weight = weight;
+                this.maxSpeed = maxSpeed;
+            }
+            makeNoise() {
+                console.log("meo meo");
+            }
+            catchRat(rat) {
+                if (this.maxSpeed > rat.speed) {
+                    console.log(`${this.name} catch  ${rat.name}`);
+                } else {
+                    console.log(`${this.name} can't catch  ${rat.name}`);
+                }
+            }
+            eatRat(rat) {
+                if (rat.isAlive) {
+                    console.log(`${this.name} eat ${rat.name}`);
+                    rat.isAlive = false;
+                    this.weight += rat.weight;
+                } else {
+                    console.log(`${this.name} can't eat ${rat.name} because ${rat.name} is dead.`);
+                }
+            }
+        }
+
+        const cat1 = new Cat("Tom", 15, 15);
+        const rat1 = new Rat("Jerry", 15, 13);
+        const rat2 = new Rat("Jeff", 11, 15);
+
+        cat1.makeNoise();
+        rat1.makeNoise();
+        rat2.makeNoise();
+
+        cat1.catchRat(rat1);
+        cat1.catchRat(rat2);
+        cat1.eatRat(rat1);
+        cat1.eatRat(rat2);
+        cat1.eatRat(rat2);
+    </script>
+</body>
+
+</html>

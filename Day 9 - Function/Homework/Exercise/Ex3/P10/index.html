@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let inputLength = prompt("Enter length ");
+        while (inputLength <= 0 || isNaN(inputLength)) {
+            inputLength = prompt("Enter length again ");
+        }
+        let arr = [];
+        for (let i = 0; i < inputLength; i++) {
+            let inputValue = prompt("Enter value at " + (i + 1) + " index");
+            arr.push(inputValue);
+        }
+
+        let searchValue = prompt("Enter new value");
+        // while(isNaN(searchValue)){
+        //     searchValue = prompt("Enter value again ");
+        // }
+
+        function findElement(arr, searchValue) {
+            let count = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] == searchValue) count++;
+            }
+            if (count == 0) return -1;
+            return count;
+        }
+        let a = findElement(arr, searchValue);
+        alert(a);
+    </script>
+</body>
+
+</html>

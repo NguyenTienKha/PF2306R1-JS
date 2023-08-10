@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isLeapYear(year) {
+            return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+        }
+
+        let count = 0, countIndex = 0;
+        let list = [], result = "";
+
+        for (let year = 101; year <= 2100; year++) {
+            if (isLeapYear(year)) {
+                list.push(year);
+                count++;
+            }
+        }
+
+        console.log("Leap Year from " + 101 + " to " + 2100 + ":");
+        for (let i = 0; i < list.length; i++) {
+            result += list[i] + " ";
+            countIndex++;
+            if (countIndex == 10) {
+                result += "\n";
+                countIndex = 0;
+            }
+        }
+        console.log(result);
+        console.log("List of leap year in that range " + count);
+
+
+    </script>
+</body>
+
+</html>

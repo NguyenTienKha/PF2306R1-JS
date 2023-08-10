@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(226, 162, 184);
+        }
+
+        canvas {
+            background-image: url('bg.png');
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="gameCanvas" style="border : 1px solid black"></canvas>
+    <img id="characterImage" src="gundam.png" style="display: none">
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = "700";
+        canvas.height = "700";
+        class Character {
+            constructor(x, y, speed) {
+                this.x = x;
+                this.y = y;
+                this.speed = speed;
+                this.width = 90;
+                this.height = 110;
+            }
+
+            moveLeft() {
+                if (this.x - this.speed >= 0) {
+                    this.x -= this.speed;
+                }
+            }
+
+            moveRight() {
+                if (this.x + this.width + this.speed <= canvas.width) {
+                    this.x += this.speed;
+                }
+            }
+
+            moveUp() {
+                if (this.y - this.speed >= 0) {
+                    this.y -= this.speed;
+                }
+            }
+
+            moveDown() {
+                if (this.y + this.height + this.speed <= canvas.height) {
+                    this.y += this.speed;
+                }
+            }
+
+            draw() {
+                let img = document.getElementById("characterImage")
+                ctx.drawImage(img, this.x, this.y, this.width, this.height);
+            }
+
+        }
+
+        const hero = new Character(225, 125, 15);
+
+        function clearRect() {
+            ctx.clearRect(this.x,this.y,this.width,this.height);
+        }
+        function drawGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            hero.draw();
+            // requestAnimationFrame(drawGame);
+            setInterval(drawGame, 1);
+        }
+
+        drawGame();
+
+        document.addEventListener("keydown", function (event) {
+            switch (event.key) {
+                case "ArrowLeft":
+                    hero.moveLeft();
+                    break;
+                case "ArrowRight":
+                    hero.moveRight();
+                    break;
+                case "ArrowUp":
+                    hero.moveUp();
+                    break;
+                case "ArrowDown":
+                    hero.moveDown();
+                    break;
+            }
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:#ff4d1c;
+    background:rgb(231, 229, 229);
+}
+/* Part 1 */
+.title-form__one{
+    background-color: #ff4d1c;
+}
+.part-one{
+    /* margin-inline:auto; */
+    background-color:#d6feff ;
+}
+.part_form-one{
+    color: #2641b2;
+}
+input{
+    border:2px solid rgb(160, 158, 158);
+    box-shadow: inset 1px 1px 2px black;
+}

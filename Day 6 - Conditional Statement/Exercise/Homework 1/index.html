@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Fruit Price</h1>
+        <form action="#">
+            <input type="text" placeholder="Enter fruit : " id="fruit-name">
+            <button type="submit" onclick="checkPrice()">Check Price</button>
+        </form>
+        <br>
+        <div id="price-result"></div>
+    </div>
+    <script>
+        function checkPrice() {
+            let fruitName = document.getElementById("fruit-name").value;
+            let price;
+            switch (fruitName) {
+                case "guava":
+                case "watermelon":
+                    price = 20000;
+                    break;
+                case "apple":
+                case "mango":
+                    price = 30000;
+                    break;
+                case "orange":
+                case "rambutan":
+                    price = 40000;
+                    break;
+                case "mangosteen":
+                    price = 50000;
+                    break;
+                default:
+                    price = 0;
+            }
+            let result = document.getElementById("price-result");
+            price > 0 ? result.innerHTML = "The price of " + fruitName + " là " + price.toLocaleString() + " VNĐ/kg" : result.innerHTML = "Can not find the price of " + fruitName;
+        }
+    </script>
+</body>
+
+</html>

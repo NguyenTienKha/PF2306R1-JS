@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <script src="./../bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-uppercase text-danger">basic calculator</h1>
+        <form id="calculatorForm" class="p-3">
+
+            <div class="box-firstnumber pb-3">
+                <label for="num1" class="fw-bold col-4 col-md-2 ">First number :</label>
+                <input type="number" id="num1" required>
+            </div>
+
+            <div class="box-secondnumber pb-3">
+                <label for="num2" class="fw-bold col-4 col-md-2 ">Second number :</label>
+                <input type="number" id="num2" required>
+            </div>
+        
+            <div class="box-button d-flex flex-column flex-sm-row">
+                <button type="button" class="col-3 text-primary fw-bold text-uppercase border-primary" onclick="calculate('add')">plus</button>
+                <button type="button" class="col-3 text-primary fw-bold text-uppercase border-primary" onclick="calculate('subtract')">minus</button>
+                <button type="button" class="col-3 text-primary fw-bold text-uppercase border-primary" onclick="calculate('multiply')">multiply</button>
+                <button type="button" class="col-3 text-primary fw-bold text-uppercase border-primary" onclick="calculate('divide')">divide</button>
+            </div>
+        
+            <div id="result" class="fw-bold pt-2 text-danger"></div>
+        </form>
+        
+    </div>
+    
+
+    <script src="main.js"></script>
+</body>
+
+</html>

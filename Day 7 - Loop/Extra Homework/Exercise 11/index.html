@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let lengthList = -1;
+        let count = 0;
+        let list = [];
+        while (lengthList <= 0 || isNaN(lengthList)) {
+            lengthList = Number(prompt('Enter length of list '));
+        }
+        for (let i = 1; i <= lengthList; i++) {
+            let number = NaN;
+            while (isNaN(number)) {
+                number = Number(prompt('The value of index ' + i));
+            }
+            list.push(number);
+        }
+        let priceMax = list[0];
+        for (let i = 0; i < list.length; i++) {
+            if (priceMax <= list[i]) {
+                priceMax = list[i];
+            }
+        }
+        for (let i = 0; i < list.length; i++) {
+            if (list[i] === priceMax) count++;
+        }
+        console.log("The largest number is : " + priceMax);
+        console.log("The occurrence count of the largest number is : " + count);
+    </script>
+</body>
+
+</html>

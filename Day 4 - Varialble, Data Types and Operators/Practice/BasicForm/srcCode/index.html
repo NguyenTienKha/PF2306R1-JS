@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="./../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <script src="./../bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h1 class="fw-bold text-center pt-3">Kha Bank</h1>
+    <form onsubmit="HandleSubmit(this)" action="#" method="post">
+        <div class="mb-3">
+            <label for="amount" class="form-label">Số tiền :</label>
+            <input type="number" class="form-control" id="amount" placeholder="298 triệu VND" name="amount"
+                onchange="getInput(this)" min="1" max="1000" required>
+        </div>
+        <div class="mb-3">
+            <label for="rate" class="form-label">Tiền lãi :</label>
+            <input type="number" class="form-control" id="rate" placeholder="6.9%" name="rate" step="0.01" min="0.01"
+                max="20.00" onchange="getInput(this)" required>
+        </div>
+        <div class="mb-3">
+            <label for="year" class="form-label">Số năm cần vay :</label>
+            <input type="number" class="form-control" id="year" placeholder="10 năm" name="year"
+                onchange="getInput(this)" required>
+        </div>
+        <div class="mb-3">
+            <label for="year" class="form-label">Nhập password :</label>
+            <input type="password" class="form-control" name="password"
+                pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" required>
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary">Tính</button>
+    </form>
+</body>
+
+</html>

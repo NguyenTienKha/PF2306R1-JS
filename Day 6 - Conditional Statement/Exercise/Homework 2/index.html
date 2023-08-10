@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-5.2.3-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: rgb(239, 243, 246);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container m-auto p-3 bg-white shadow mt-5">
+        <h1 class="title text-uppercase">Calculating the university score of Grade D</h1>
+        <form action="#" class="pt-3">
+            <div>
+                <label for="math" class="col-2 fw-bold text-uppercase">Math</label>
+                <input type="number" id="math">
+            </div><br>
+            
+            <div>
+                <label for="literature" class="col-2 fw-bold text-uppercase">Literature</label>
+                <input type="number" id="literature">
+            </div><br>
+            
+            <div>
+                <label for="english" class="col-2 fw-bold text-uppercase">English</label>
+                <input type="number" id="english">
+            </div><br>
+            
+            <div>
+                <label for="area" class="col-2 fw-bold text-uppercase">Area</label>
+                <select name="area" id="area">
+                    <option value="1">1</option>
+                    <option value="2-NT">2-NT</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div><br>
+            
+            <button type="submit" class="fw-bold" onclick="checkScore()">Check</button>
+        </form>
+
+
+    </div>
+
+
+    <script>
+        function checkScore() {
+
+            let math = parseFloat(document.getElementById('math').value);
+            let literature = parseFloat(document.getElementById('literature').value);
+            let english = parseFloat(document.getElementById('english').value);
+            let area = document.getElementById('area').value;
+            let bonus;
+            switch (area) {
+                case "1":
+                    bonus = 0.75;
+                    break;
+                case "2-NT":
+                    bonus = 0.5;
+                    break;
+                case "2":
+                    bonus = 0.25;
+                    break;
+                case "3":
+                    bonus = 0;
+                    break;
+            }
+            let score = math + literature + english + bonus;
+            alert("Your total score : " + score);
+        }
+    </script>
+</body>
+
+</html>

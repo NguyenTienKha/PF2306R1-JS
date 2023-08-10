@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculating Luna Calendar</h1>
+        <label for="year">Calendar</label>
+        <input type="number" id="year">
+        <button type="submit" onclick="changeLunacalendar()">Check</button>
+    </div>
+
+    <script>
+        function changeLunacalendar() {
+            let year = parseFloat(document.getElementById("year").value);
+            let canYear = year % 10, chiYear = year % 12;
+            let can, chi;
+            switch (canYear) {
+                case 0: can = "Canh"; break;
+                case 1: can = "Tân"; break;
+                case 2: can = "Nhâm"; break;
+                case 3: can = "Quý"; break;
+                case 4: can = "Giáp"; break;
+                case 5: can = "Ất"; break;
+                case 6: can = "Bính"; break;
+                case 7: can = "Đinh"; break;
+                case 8: can = "Mậu"; break;
+                case 9: can = "Kỷ"; break;
+            }
+            switch (chiYear) {
+                case 0: chi = "Thân"; break;
+                case 1: chi = "Dậu"; break;
+                case 2: chi = "Tuất"; break;
+                case 3: chi = "Hợi"; break;
+                case 4: chi = "Tí"; break;
+                case 5: chi = "Sửu"; break;
+                case 6: chi = "Dần"; break;
+                case 7: chi = "Mẹo"; break;
+                case 8: chi = "Thìn"; break;
+                case 9: chi = "Tỵ"; break;
+                case 10: chi = "Ngọ"; break;
+                case 11: chi = "Mùi"; break;
+            }
+            let luna = can + " " + chi;
+            alert("Calendar : " + year + " to Luna Calendar : " + luna)
+
+        }
+    </script>
+</body>
+
+</html>

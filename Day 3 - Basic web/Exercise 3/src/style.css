@@ -1,0 +1,12 @@
+.basicForm{
+    font-family: "Lucida Grande","Lucida Sans Unicode", Tahoma, sans-serif;
+    border : 1px solid  black;
+    padding : 10px;
+}
+.first-part,.second-part,.third-part,.four-part,.five-part{
+    margin-block-end : 25px;
+}
+.btn-submit:hover{
+    color:red;
+    background-color: bisque;
+}

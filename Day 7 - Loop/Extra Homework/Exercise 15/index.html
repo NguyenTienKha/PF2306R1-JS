@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let countVowels = 0;
+        let countConsonants = 0;
+        let input = prompt("Enter a string");
+        let userInput = input.toLowerCase();
+        for (let i = 0; i < userInput.length; i++) {
+            if (userInput[i] == "a" || userInput[i] == "e" || userInput[i] == "i" || userInput[i] == "o" || userInput[i] == "u") countVowels++;
+            else countConsonants++;
+        }
+        console.log("The number of vowels is " + countVowels);
+        console.log("The number of consonants is " + (countConsonants-1));
+    </script>
+</body>
+
+</html>

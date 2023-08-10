@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="./../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+	<script src="./../bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<h1 class="fw-bold">Part 2 </h1>
+	<div class="part-two">
+		<form class="container__part-two p-2 " action="#" >
+			<div class="title__part-two p-1 fw-bold text-uppercase">đăng ký học viên</div>
+			<div class="pt-2 pb-2">
+				<label for="name" class="col-12 col-sm-2 title text-nowrap">Họ và tên</label>
+				<input type="text" name="name" id="name" class="col-8 col-sm-3" required>
+			</div>
+			<div class="pt-2 pb-2">
+				<label for="date-of-birth" class="col-12 col-sm-2 title text-nowrap">Ngày sinh</label>
+				<input type="date" name="date-of-birth" id="date-of-birth" class="col-8 col-sm-3">
+			</div>
+			<div class="d-flex pt-2 pb-2 d-flex flex-sm-row flex-column">
+				<div class="col-12 col-sm-2 title text-nowrap">Giới tính</div>
+				<div>
+					<input type="radio" name="gender" value="male">Nam
+					<input type="radio" name="gender" value="female">Nữ
+				</div>
+			</div>
+			<div class="pt-2 pb-2">
+				<label for="address" class="col-12 col-sm-2 title d-flex float-start text-nowrap">Địa chỉ</label>
+				<textarea id="address" name="Address" rows="2" cols="30" class="col-8 col-sm-3 m-sm-1"
+					required></textarea>
+			</div>
+			<div class="pt-2 pb-2">
+				<label for="class" class="col-12 col-sm-2 title">Lớp</label>
+				<select name="grade" id="class" class="col-6 col-sm-3">
+					<option value="">-- Chọn Lớp --</option>
+					<option value="1" class="text-center">Lớp 1</option>
+					<option value="2" class="text-center">Lớp 2</option>
+					<option value="3" class="text-center">Lớp 3</option>
+				</select>
+			</div>
+			<div class="pt-2 pb-2">
+				<label for="email" class="col-12 col-sm-2 title">Email</label>
+				<input type="email" name="email" id="email" class="col-8 col-sm-3">
+			</div>
+			<div class="pt-2 pb-2">
+				<label for="phoneNumber" class="col-12 col-sm-2 title text-nowrap">Điện thoại</label>
+				<input type="number" name="phoneNumber" id="phoneNumber" class="col-8 col-sm-3" />
+			</div>
+			<div class="ps-sm-5 pt-2 pb-2">
+				<input type="submit" value="Đăng ký">
+				<input type="reset" value="Nhập lại">
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
