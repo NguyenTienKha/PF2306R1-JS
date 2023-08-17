@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-R</title>
+</head>
+
+<body>
+
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+        class Rectangle {
+            constructor(x, y, w, h) {
+                this.x = x;
+                this.y = y;
+                this.w = w;
+                this.h = h;
+            }
+            getX() { return this.x; }
+            getY() { return this.y; }
+            getW() { return this.w; }
+            getH() { return this.h; }
+            setX() { this.x = x; }
+            setY() { this.y = y; }
+            setH() { this.h = h; }
+            setW() { this.w = w; }
+        }
+        function checkCollision(rect1, rect2) {
+            let distX = (rect1.x + (rect1.w / 2)) - (rect2.x + (rect2.w) / 2);
+            distX = Math.abs(distX);
+
+            const distW = (rect1.w + rect2.w) / 2;
+
+            let distY = (rect1.y + (rect1.h / 2)) - (rect2.y + (rect2.h) / 2);
+            distY = Math.abs(distY);
+
+
+            const distH = (rect1.h + rect2.h) / 2;
+
+            return (distX <= distW && distY <= distH);
+        }
+
+        function drawRectangle(ctx, rect, color) {
+            ctx.beginPath();
+            ctx.fillStyle = color;
+            ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
+            ctx.fill();
+        }
+
+        const rect1 = new Rectangle(200, 100, 50, 40);
+        const rect2 = new Rectangle(150, 100, 40, 50);
+
+        drawRectangle(ctx, rect1, 'red');
+        drawRectangle(ctx, rect2, 'green');
+        console.log(checkCollision(rect1, rect2));
+    </script>
+</body>
+
+</html>

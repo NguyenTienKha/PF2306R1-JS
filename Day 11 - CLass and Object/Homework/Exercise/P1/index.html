@@ -10,46 +10,58 @@
 
 <body>
     <div class="container">
-        <canvas id="myCanvas"></canvas>
+        <h2 class="title">Draw Rectangle</h2>
+        <label for="length">Enter Length</label>
+        <input type="number" id="length" onchange="getLength(this.value)"> <br><br>
+        <label for="width">Enter Width</label>
+        <input type="number" id="width" onchange="getWidth(this.value)"> <br><br>
+        <button id="btnSubmit">Submit value to draw</button> <br><br>
+        <canvas id="mainFrame"></canvas>
     </div>
+
+
     <script>
+        let btnSubmit = document.getElementById('btnSubmit');
+        let length, width;
+        const canvas = document.getElementById("mainFrame");
+        const ctx = canvas.getContext("2d");
+        const x = 50, y = 50;
+        function getLength(obj) {
+            length = obj;
+        }
+        function getWidth(obj) {
+            width = obj;
+        }
+
         class Rectangle {
-            constructor(length, width) {
-                this.length = length;
+            constructor(width, length) {
                 this.width = width;
+                this.length = length;
+                this.color = "#FFFFFF";
             }
-
-            calculateArea() {
-                return this.length * this.width;
-            }
-
-            calculatePerimeter() {
-                return 2 * (this.length + this.width);
-            }
-
-            drawRectangle() {
-                const canvas = document.getElementById('myCanvas');
-                const ctx = canvas.getContext('2d');
-                ctx.fillStyle = "orange";
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.fillRect(10, 10, this.length, this.width);
+            getWidth() { return width; }
+            getLength() { return length; }
+            setWidth() { this.width = width; }
+            setLength() { this.length = length; }
+            setColor(color) { this.color = color; }
+            calculateArea() { return this.width * this.length; }
+            calculatePerimeter() { return (this.width + this.length) * 2; }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.fillRect(x, y, this.length, this.width);
             }
         }
 
-        let myRectangle = new Rectangle(100, 150);
-
-        myRectangle.drawRectangle();
-
-        myRectangle.length = 200;
-        myRectangle.width = 250;
-
-        myRectangle.drawRectangle();
-
-        const area = myRectangle.calculateArea();
-        const perimeter = myRectangle.calculatePerimeter();
-        console.log(`Diện tích: ${area}`);
-        console.log(`Chu vi: ${perimeter}`);
-
+        btnSubmit.addEventListener("click", function () {
+            if (!length || !width) {
+                alert("Please enter value number.");
+            } else {
+                let rect = new Rectangle(width, length);
+                console.log(`The area of rectangle is ${rect.calculateArea()} and the perimeter of rectangle is ${rect.calculatePerimeter()}`);
+                rect.setColor("orange");
+                rect.draw();
+            }
+        })
     </script>
 </body>
 

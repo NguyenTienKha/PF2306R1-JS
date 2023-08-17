@@ -9,33 +9,37 @@
     <link rel="stylesheet" href="./bootstrap-5.2.3-dist/css/bootstrap.min.css">
     <script src="./bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
     <style>
+        .container-fluid {
+            background-image: url('bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
         .btn-reset {
             background-color: papayawhip;
             color: purple;
         }
 
         .box-content {
-            background-color: aquamarine;
-            color: brown;
+            background-color: rgba(127, 255, 212, 0.699);
             width: 30px;
             height: 30px;
-            border: 1px solid black;
+            border: 1px solid palevioletred;
             cursor: pointer;
         }
 
         .game-board {
             display: grid;
             grid-template-columns: repeat(20, 30px);
-            gap: 0;
-            border: 1px solid black;
+            border: 1px solid palevioletred;
             border-collapse: collapse;
         }
     </style>
 </head>
 
 <body>
-    <div class="container d-flex justify-content-center align-items-center flex-column">
-        <div class="title text-uppercase fw-bold m-3">caro game</div>
+    <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
+        <div class="title text-uppercase fw-bold m-3 mb-2 text-danger fs-3">caro game</div>
         <button onclick="reset()" class="btn-reset border-0 rounded-3 fw-bold m-3">Reset</button>
         <div id="game-board" class="game-board mb-4">
         </div>
@@ -68,9 +72,11 @@
             if (btn.innerText == "") {
                 if (count % 2 == 0) {
                     btn.innerText = "X";
+                    btn.style = "color: red";
                     count++;
                 } else {
                     btn.innerText = "O";
+                    btn.style = "color: blue";
                     count++;
                 }
                 updateArray();
@@ -127,9 +133,6 @@
                 reset();
             };
         }
-
-
-
 
     </script>
 </body>

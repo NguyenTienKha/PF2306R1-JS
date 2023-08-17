@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-C</title>
+</head>
+
+<body>
+
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+        class Circle {
+            constructor(x, y, radius) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+            }
+            getX() { return this.x; }
+            getY() { return this.y; }
+            getRadius() { return this.radius; }
+            setX() { this.x = x; }
+            setY() { this.y = y; }
+            setRadius() { this.radius = radius; }
+        }
+        class Rectangle {
+            constructor(x, y, w, h) {
+                this.x = x;
+                this.y = y;
+                this.w = w;
+                this.h = h;
+            }
+            getX() { return this.x; }
+            getY() { return this.y; }
+            getW() { return this.w; }
+            getH() { return this.h; }
+            setX() { this.x = x; }
+            setY() { this.y = y; }
+            setH() { this.h = h; }
+            setW() { this.w = w; }
+        }
+
+        function drawCircle(ctx, cir, color) {
+            ctx.beginPath();
+            ctx.fillStyle = color;
+            ctx.arc(cir.x, cir.y, cir.radius, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        function drawRectangle(ctx, rect, color) {
+            ctx.beginPath();
+            ctx.fillStyle = color;
+            ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
+            ctx.fill();
+        }
+
+        function checkCollision(cir, rect) {
+            let Ax = cir.x;
+            let Ay = cir.y;
+
+            let rectLeft = rect.x;
+            let rectTop = rect.y;
+            let rectRight = rect.x + rect.w;
+            let rectBottom = rect.y + rect.h;
+
+            if (cir.x < rectLeft) Ax = rectLeft;
+            if (cir.x > rectRight) Ax = rectRight;
+
+            if (cir.y < rectTop) Ay = rectTop;
+            if (cir.y > rectBottom) Ay = rectBottom;
+
+            return Math.sqrt(Math.pow((cir.x - Ax), 2) + Math.pow((cir.y - Ay), 2)) <= Math.sqrt(cir.radius * cir.radius);
+        }
+        const cir = new Circle(100, 100, 50);
+        const rect = new Rectangle(150, 100, 40, 50);
+
+        drawCircle(ctx, cir, 'red');
+        drawRectangle(ctx, rect, 'blue');
+        console.log(checkCollision(cir, rect));
+    </script>
+</body>
+
+</html>

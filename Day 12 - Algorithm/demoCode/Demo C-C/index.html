@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-C</title>
+</head>
+
+<body>
+
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+        class Circle {
+            constructor(x, y, radius) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+            }
+            getX() { return this.x; }
+            getY() { return this.y; }
+            getRadius() { return this.radius; }
+            setX() { this.x = x; }
+            setY() { this.y = y; }
+            setRadius() { this.radius = radius; }
+        }
+        function calculateDistance(circle1, circle2) {
+            return Math.sqrt(Math.pow((circle1.x - circle2.x), 2) + Math.pow((circle1.y - circle2.y), 2));
+        }
+
+        function checkCollision(circle1, circle2) {
+            if ((circle1.radius + circle2.radius) < calculateDistance(circle1, circle2)) {
+                return false;
+            }
+            return true;
+        }
+
+        function drawCircle(ctx, circle, color) {
+            ctx.beginPath();
+            ctx.fillStyle = color;
+            ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+
+        const circle1 = new Circle(100, 100, 50);
+        const circle2 = new Circle(150, 100, 40);
+
+        drawCircle(ctx, circle1, 'red');
+        drawCircle(ctx, circle2, 'green');
+        console.log(checkCollision(circle1, circle2));
+    </script>
+</body>
+
+</html>
