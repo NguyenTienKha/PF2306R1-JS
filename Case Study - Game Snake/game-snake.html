@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        .display-game-board {
+            background: url(images/background.jpg);
+        }
+
+        .snake-head {
+            background-image: url(images/snake-head.jpg);
+            background-size: 100% 100%;
+        }
+
+        .snake-body {
+            background-image: url(images/snake-body.png);
+            background-size: 100% 100%;
+        }
+
+        .food {
+            background-image: url(images/food.jpg);
+            background-size: 100% 100%;
+        }
+
+        .bomb {
+            background-image: url(images/bomb.png);
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="user-guide">Player guide
+        </div>
+        <div class="sound">
+            <audio class="sound-eating">
+                <source src="sounds/sound-eating.mp3" type="audio/mpeg">
+            </audio>
+            <audio class="sound-over">
+                <source src="sounds/game-over-sound.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="title">Snake Game</div>
+        <div class="display-score">
+            <div class="score">Score : 0</div>
+            <div class="high-score">High Score :0</div>
+        </div>
+        <div class="display-game-board">
+        </div>
+    </div>
+
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>
